@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // ADD THIS LINE BELOW (Use your actual repo name)
-  base: "/ather8.github.io/", 
+  base: "/", 
   
   server: {
     host: "::",
