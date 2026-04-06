@@ -1,4 +1,4 @@
-import { Brain, Code, Database, User } from "lucide-react";
+import { Brain, Code, Database } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const highlights = [
@@ -19,12 +19,7 @@ const AboutSection = () => {
         <h2 className="text-3xl font-bold text-center mb-4">About Me</h2>
         <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" />
 
-        <div className="flex flex-col md:flex-row gap-8 mb-12 items-center">
-          <div className="md:w-16 flex-shrink-0 flex justify-center">
-            <div className="h-14 w-14 rounded-full bg-secondary border-2 border-primary/30 flex items-center justify-center">
-              <User className="h-7 w-7 text-primary" />
-            </div>
-          </div>
+        <div className="mb-12">
           <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
             <p>
               It started with a simple question: <span className="text-foreground font-medium italic">"Can a machine actually learn to think?"</span> That curiosity led me from studying Electrical Engineering at Ain Shams University to diving headfirst into the world of machine learning — and I haven't looked back since.
