@@ -25,9 +25,17 @@ const AboutSection = () => {
               <User className="h-7 w-7 text-primary" />
             </div>
           </div>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            I'm Ather Sayed — a Machine Learning Engineer and Ain Shams University graduate (B.Sc. Electrical Engineering, Computer & Systems). I'm driven by curiosity to understand how machines can learn from data and make intelligent decisions. With specialized training from DeepLearning.AI, Stanford, and IBM, I bring hands-on experience across supervised/unsupervised learning, deep neural networks, and end-to-end ML pipelines. I'm always looking for opportunities to apply AI to real-world challenges.
-          </p>
+          <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
+            <p>
+              It started with a simple question: <span className="text-foreground font-medium italic">"Can a machine actually learn to think?"</span> That curiosity led me from studying Electrical Engineering at Ain Shams University to diving headfirst into the world of machine learning — and I haven't looked back since.
+            </p>
+            <p>
+              Through specialized training with DeepLearning.AI, Stanford, and IBM, I went from understanding the math behind neural networks to building real systems — fraud detection models that catch what humans miss, CNNs that recognize handwriting with near-perfect accuracy, and pipelines that turn messy datasets into actionable insights.
+            </p>
+            <p>
+              What drives me isn't just the technology — it's the moment when a model clicks, when data reveals a pattern no one expected, and when AI solves a problem that genuinely matters. I'm always looking for the next challenge where I can make that happen.
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
