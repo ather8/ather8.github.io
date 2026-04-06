@@ -26,7 +26,8 @@ const ContactSection = () => {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="flex items-center justify-center gap-3 px-6 py-4 bg-card border border-border rounded-xl hover:border-primary/50 transition-colors group"
+              className="flex items-center justify-center gap-3 px-6 py-4 bg-card border border-border rounded-xl hover:border-primary/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors group"
+              aria-label={link.external ? `${link.label} (opens in new tab)` : link.label}
             >
               <link.icon className="h-5 w-5 text-primary" />
               <span className="text-foreground font-medium">{link.label}</span>
