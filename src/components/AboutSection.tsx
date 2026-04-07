@@ -11,13 +11,13 @@ const AboutSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-24 px-6" aria-labelledby="about-heading">
       <div
         ref={ref}
         className={`max-w-5xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       >
-        <h2 className="text-3xl font-bold text-center mb-4">About Me</h2>
-        <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" />
+        <h2 id="about-heading" className="text-3xl font-bold text-center mb-4">About Me</h2>
+        <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" aria-hidden="true" />
 
         <div className="mb-12">
           <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
@@ -40,7 +40,7 @@ const AboutSection = () => {
               className={`bg-card border border-border rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${(i + 1) * 150}ms` }}
             >
-              <h.icon className="h-10 w-10 text-primary mx-auto mb-4" />
+              <h.icon className="h-10 w-10 text-primary mx-auto mb-4" aria-hidden="true" />
               <h3 className="font-semibold text-foreground mb-2">{h.label}</h3>
               <p className="text-sm text-muted-foreground">{h.desc}</p>
             </div>
