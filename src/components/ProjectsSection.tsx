@@ -49,13 +49,13 @@ const ProjectsSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="projects" className="py-24 px-6" aria-labelledby="projects-heading">
       <div ref={ref} className={`max-w-6xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <h2 className="text-3xl font-bold text-center mb-4">Projects</h2>
-        <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" />
+        <h2 id="projects-heading" className="text-3xl font-bold text-center mb-4">Projects</h2>
+        <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" aria-hidden="true" />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p, i) => (
-            <div
+            <article
               key={p.title}
               className={`group bg-card border border-border rounded-xl p-6 flex flex-col gap-4 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${(i + 1) * 100}ms` }}
@@ -77,19 +77,19 @@ const ProjectsSection = () => {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <ul className="flex flex-wrap gap-2" aria-label={`Technologies used in ${p.title}`}>
                 {p.tags.map((t) => (
-                  <span key={t} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">{t}</span>
+                  <li key={t} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">{t}</li>
                 ))}
-              </div>
+              </ul>
               <div className="flex gap-2 mt-2">
-                <a href={p.github} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.title} source code on GitHub`}>
-                  <Button variant="outline" size="sm" className="gap-1.5">
-                    <Github className="h-3.5 w-3.5" /> View Code
-                  </Button>
-                </a>
+                <Button variant="outline" size="sm" className="gap-1.5 min-h-[44px]" asChild>
+                  <a href={p.github} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.title} source code on GitHub (opens in new tab)`}>
+                    <Github className="h-3.5 w-3.5" aria-hidden="true" /> View Code
+                  </a>
+                </Button>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

@@ -24,7 +24,7 @@ const Navbar = () => {
         </a>
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors py-2">
               {l.label}
             </a>
           ))}
@@ -32,15 +32,15 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-            {open ? <X /> : <Menu />}
+          <Button variant="ghost" size="icon" className="md:hidden min-h-[44px] min-w-[44px]" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"}>
+            {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
           </Button>
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t border-border bg-background px-6 py-4 flex flex-col gap-3" role="menu">
+        <div id="mobile-menu" className="md:hidden border-t border-border bg-background px-6 py-4 flex flex-col gap-1" role="menu">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-primary transition-colors py-3 px-2" role="menuitem">
               {l.label}
             </a>
           ))}

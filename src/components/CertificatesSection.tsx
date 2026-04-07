@@ -26,10 +26,10 @@ const CertificatesSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="certificates" className="py-24 px-6 bg-card/50">
+    <section id="certificates" className="py-24 px-6 bg-card/50" aria-labelledby="certificates-heading">
       <div ref={ref} className={`max-w-5xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <h2 className="text-3xl font-bold text-center mb-4">Certificates</h2>
-        <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" />
+        <h2 id="certificates-heading" className="text-3xl font-bold text-center mb-4">Certificates</h2>
+        <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" aria-hidden="true" />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {certificates.map((cert, i) => (
             <div
@@ -37,17 +37,29 @@ const CertificatesSection = () => {
               className={`bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all cursor-pointer group duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${(i + 1) * 80}ms` }}
               onClick={() => setSelected(i)}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelected(i); } }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View ${cert.title} certificate`}
             >
               <div className="aspect-[4/3] overflow-hidden bg-secondary">
-                <img src={cert.image} alt={cert.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img src={cert.image} alt={`${cert.title} certificate from ${cert.issuer}`} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="p-4 space-y-2">
                 <h3 className="font-semibold text-sm text-foreground leading-tight">{cert.title}</h3>
                 <p className="text-xs text-muted-foreground">{cert.issuer}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-primary">{cert.date}</span>
-                  <a href={cert.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="text-muted-foreground hover:text-primary">
-                    <ExternalLink className="h-3.5 w-3.5" />
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    onKeyDown={(e) => e.stopPropagation()}
+                    className="text-muted-foreground hover:text-primary p-1"
+                    aria-label={`Verify ${cert.title} certificate (opens in new tab)`}
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                   </a>
                 </div>
               </div>
@@ -59,7 +71,7 @@ const CertificatesSection = () => {
       <Dialog open={selected !== null} onOpenChange={() => setSelected(null)}>
         <DialogContent className="max-w-3xl p-2 bg-card border-border">
           {selected !== null && (
-            <img src={certificates[selected].image} alt={certificates[selected].title} className="w-full rounded-lg" />
+            <img src={certificates[selected].image} alt={`${certificates[selected].title} certificate full view`} className="w-full rounded-lg" />
           )}
         </DialogContent>
       </Dialog>
