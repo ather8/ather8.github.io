@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 
 const BackToTop = () => {
   const [visible, setVisible] = useState(false);
-  const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);
@@ -13,33 +12,34 @@ const BackToTop = () => {
   }, []);
 
   const handleClick = () => {
-    setScrolling(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const start = window.scrollY;
+    const duration = 800;
+    const startTime = performance.now();
 
-    const checkScroll = () => {
-      if (window.scrollY === 0) {
-        setScrolling(false);
-      } else {
-        requestAnimationFrame(checkScroll);
-      }
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      window.scrollTo(0, start * (1 - easeInOutCubic(progress)));
+      if (progress < 1) requestAnimationFrame(animate);
     };
-    requestAnimationFrame(checkScroll);
-  };
 
-  if (!visible && !scrolling) return null;
+    requestAnimationFrame(animate);
+  };
 
   return (
     <Button
       variant="outline"
       size="icon"
       className={`fixed bottom-6 right-6 z-50 rounded-full shadow-lg min-h-[44px] min-w-[44px] bg-background/80 backdrop-blur-sm border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 ${
-        scrolling ? "animate-bounce scale-110 ring-2 ring-primary/40" : "animate-fade-in"
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
       onClick={handleClick}
       aria-label="Back to top"
-      disabled={scrolling}
     >
-      <ArrowUp className={`h-5 w-5 transition-transform duration-300 ${scrolling ? "-translate-y-0.5" : ""}`} aria-hidden="true" />
+      <ArrowUp className="h-5 w-5" aria-hidden="true" />
     </Button>
   );
 };
