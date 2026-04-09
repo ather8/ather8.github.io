@@ -25,6 +25,7 @@ const Index = () => (
       <ContactSection />
     </main>
     <Footer />
+    <BackToTop />
   </div>
 );
 
