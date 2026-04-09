@@ -20,6 +20,7 @@ const certificates = [
   { title: "Machine Learning with Python", issuer: "IBM", instructor: "Multiple Instructors", date: "Mar 2026", image: certMLPython, link: "https://coursera.org/verify/WCZCDDFTHVSC" },
   { title: "Introduction to Deep Learning & Neural Networks with Keras", issuer: "IBM", instructor: "Alex Aklson, Ph.D.", date: "Mar 2026", image: certIntroDLKeras, link: "https://coursera.org/verify/WK40ZAUFNVZU" },
   { title: "Deep Learning with Keras and TensorFlow", issuer: "IBM", instructor: "Multiple Instructors", date: "Apr 2026", image: certDLKerasTF, link: "https://coursera.org/verify/ZWMFZU5RQ7M7" },
+  { title: "Docker Training Course for the Absolute Beginner", issuer: "KodeKloud", instructor: "Mumshad Mannambeth", date: "Apr 2026", image: certDockerTraining, link: "https://kodekloud.com/certificate-verification/1f969372-5641-40ff-806b-35dae9acf4b9" },
 ];
 
 const CertificatesSection = () => {
