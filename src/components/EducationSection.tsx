@@ -5,14 +5,14 @@ const EducationSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="education" className="py-20 sm:py-24 px-4 sm:px-6" aria-labelledby="education-heading">
+    <section id="education" className="py-24 px-6" aria-labelledby="education-heading">
       <div ref={ref} className={`max-w-5xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
         <h2 id="education-heading" className="text-3xl font-bold text-center mb-4">Education</h2>
         <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" aria-hidden="true" />
         <div className="max-w-2xl mx-auto space-y-6">
-          <div className="bg-card border border-border rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
-            <div className="h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-secondary border-2 border-primary/30 flex items-center justify-center shrink-0" aria-hidden="true">
-              <GraduationCap className="h-7 w-7 sm:h-8 sm:w-8 text-primary" />
+          <div className="bg-card border border-border rounded-xl p-8 flex gap-6 items-start">
+            <div className="h-16 w-16 rounded-full bg-secondary border-2 border-primary/30 flex items-center justify-center shrink-0" aria-hidden="true">
+              <GraduationCap className="h-8 w-8 text-primary" />
             </div>
             <div className="space-y-2">
               <h3 className="text-lg font-semibold text-foreground">B.Sc. in Electrical Engineering</h3>
@@ -25,9 +25,9 @@ const EducationSection = () => {
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
-            <div className="h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-secondary border-2 border-primary/30 flex items-center justify-center shrink-0" aria-hidden="true">
-              <Calendar className="h-7 w-7 sm:h-8 sm:w-8 text-primary" />
+          <div className="bg-card border border-border rounded-xl p-8 flex gap-6 items-start">
+            <div className="h-16 w-16 rounded-full bg-secondary border-2 border-primary/30 flex items-center justify-center shrink-0" aria-hidden="true">
+              <Calendar className="h-8 w-8 text-primary" />
             </div>
             <div className="space-y-2">
               <h3 className="text-lg font-semibold text-foreground">Military Service</h3>

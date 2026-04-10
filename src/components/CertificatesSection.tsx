@@ -28,11 +28,11 @@ const CertificatesSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="certificates" className="py-20 sm:py-24 px-4 sm:px-6 bg-card/50" aria-labelledby="certificates-heading">
+    <section id="certificates" className="py-24 px-6 bg-card/50" aria-labelledby="certificates-heading">
       <div ref={ref} className={`max-w-5xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
         <h2 id="certificates-heading" className="text-3xl font-bold text-center mb-4">Certificates</h2>
         <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" aria-hidden="true" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {certificates.map((cert, i) => (
             <div
               key={i}
@@ -51,14 +51,14 @@ const CertificatesSection = () => {
                 <h3 className="font-semibold text-sm text-foreground leading-tight">{cert.title}</h3>
                 <p className="text-xs text-muted-foreground">{cert.issuer}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-primary font-medium">{cert.date}</span>
+                  <span className="text-xs text-primary">{cert.date}</span>
                   <a
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
                     onKeyDown={(e) => e.stopPropagation()}
-                    className="text-muted-foreground hover:text-primary p-1 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                    className="text-muted-foreground hover:text-primary p-1"
                     aria-label={`Verify ${cert.title} certificate (opens in new tab)`}
                   >
                     <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
