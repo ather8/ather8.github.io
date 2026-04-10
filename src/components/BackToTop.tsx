@@ -33,7 +33,7 @@ const BackToTop = () => {
     <Button
       variant="outline"
       size="icon"
-      className={`fixed bottom-6 right-6 z-50 rounded-full shadow-lg min-h-[44px] min-w-[44px] bg-background/80 backdrop-blur-sm border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 ${
+      className={`fixed bottom-6 right-6 z-50 rounded-full shadow-lg min-h-[44px] min-w-[44px] bg-background/95 border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
       onClick={handleClick}

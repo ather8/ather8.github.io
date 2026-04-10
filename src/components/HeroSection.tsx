@@ -12,7 +12,7 @@ const HeroSection = () => {
             <AvatarImage src={profileImg} alt="Ather Sayed – Machine Learning Engineer" className="object-cover object-top" />
             <AvatarFallback className="text-4xl font-bold bg-secondary text-primary">AS</AvatarFallback>
           </Avatar>
-          <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 bg-primary/15 border border-primary/30 text-primary text-xs font-medium rounded-full whitespace-nowrap backdrop-blur-sm">
+          <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 bg-primary/15 border border-primary/30 text-primary text-xs font-medium rounded-full whitespace-nowrap">
             <Sparkles className="h-3 w-3" aria-hidden="true" />
             Open to Opportunities
           </span>
