@@ -15,7 +15,7 @@ const skillCategories = [
   {
     icon: Wrench,
     title: "Programming & Tools",
-    skills: ["Python", "NumPy", "Pandas", "scikit-learn", "Matplotlib", "Jupyter Notebooks", "Git", "Docker"],
+    skills: ["Python", "NumPy", "Pandas", "scikit-learn", "Matplotlib", "OpenCV", "Jupyter Notebooks", "Git", "Docker", "ONNX"],
   },
   {
     icon: BookOpen,
