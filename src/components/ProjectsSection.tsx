@@ -48,6 +48,15 @@ const projects = [
     tags: ["Python", "scikit-learn", "Seaborn", "Linear Regression"],
     github: "https://github.com/ather8/House-Prices-Project",
   },
+  {
+    title: "Breast Cancer Detection",
+    situation: "Histopathology image patches needed automated analysis to detect Invasive Ductal Carcinoma (IDC) with minimal false negatives.",
+    task: "Build a deep learning pipeline that achieves high recall for medical screening, critical for minimizing missed diagnoses.",
+    action: "Leveraged InceptionResNetV2 with two-stage transfer learning — frozen feature extraction then fine-tuning from layer 600+. Applied data augmentation and exported to ONNX for deployment.",
+    result: "Achieved ~94% accuracy, 0.96–0.99 AUC, and up to 98% IDC recall after fine-tuning.",
+    tags: ["Python", "TensorFlow", "Keras", "OpenCV", "ONNX"],
+    github: "https://github.com/ather8/Breast_Cancer_Detection",
+  },
 ];
 
 const starLabels = [
