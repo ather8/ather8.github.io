@@ -11,6 +11,7 @@ import certMLPython from "@/assets/certificates/cert-ml-python.jpg";
 import certIntroDLKeras from "@/assets/certificates/cert-intro-dl-keras.jpg";
 import certDLKerasTF from "@/assets/certificates/cert-dl-keras-tf.jpg";
 import certDockerTraining from "@/assets/certificates/cert-docker-training.jpg";
+import certPytorchNN from "@/assets/certificates/cert-pytorch-nn.jpg";
 
 const certificates = [
   { title: "Supervised Machine Learning: Regression and Classification", issuer: "DeepLearning.AI & Stanford University", instructor: "Andrew Ng", date: "Dec 2025", image: certSupervisedML, link: "https://coursera.org/verify/2M8Y6KVACWCN" },
@@ -21,6 +22,7 @@ const certificates = [
   { title: "Introduction to Deep Learning & Neural Networks with Keras", issuer: "IBM", instructor: "Alex Aklson, Ph.D.", date: "Mar 2026", image: certIntroDLKeras, link: "https://coursera.org/verify/WK40ZAUFNVZU" },
   { title: "Deep Learning with Keras and TensorFlow", issuer: "IBM", instructor: "Multiple Instructors", date: "Apr 2026", image: certDLKerasTF, link: "https://coursera.org/verify/ZWMFZU5RQ7M7" },
   { title: "Docker Training Course for the Absolute Beginner", issuer: "KodeKloud", instructor: "Mumshad Mannambeth", date: "Apr 2026", image: certDockerTraining, link: "https://kodekloud.com/certificate-verification/1f969372-5641-40ff-806b-35dae9acf4b9" },
+  { title: "Introduction to Neural Networks and PyTorch", issuer: "IBM", instructor: "Joseph Santarcangelo", date: "Apr 2026", image: certPytorchNN, link: "https://coursera.org/verify/62ON4TGSHYYZ" },
 ];
 
 const CertificatesSection = () => {

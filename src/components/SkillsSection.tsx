@@ -10,7 +10,7 @@ const skillCategories = [
   {
     icon: Code,
     title: "Deep Learning",
-    skills: ["Neural Networks", "CNNs", "Keras", "TensorFlow", "Backpropagation", "Transfer Learning", "Model Optimization"],
+    skills: ["Neural Networks", "CNNs", "Keras", "TensorFlow", "PyTorch", "Backpropagation", "Transfer Learning", "Model Optimization"],
   },
   {
     icon: Wrench,
