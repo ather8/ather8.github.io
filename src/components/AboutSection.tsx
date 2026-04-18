@@ -2,9 +2,9 @@ import { Brain, Code, Database } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const highlights = [
-  { icon: Brain, label: "Deep Learning", desc: "Neural networks, CNNs, reinforcement learning" },
-  { icon: Code, label: "ML Engineering", desc: "Python, TensorFlow, Keras, scikit-learn" },
-  { icon: Database, label: "Data Science", desc: "Data analysis, feature engineering, model optimization" },
+  { icon: Brain, label: "Deep Learning", desc: "CNNs, transfer learning, PyTorch & Keras neural networks" },
+  { icon: Code, label: "ML Engineering", desc: "Python, TensorFlow, FastAPI, Docker, end-to-end deployment" },
+  { icon: Database, label: "Data Science", desc: "Imbalanced data, feature engineering, model optimization" },
 ];
 
 const AboutSection = () => {
@@ -25,7 +25,7 @@ const AboutSection = () => {
               It started with a simple question: <span className="text-foreground font-medium italic">"Can a machine actually learn to think?"</span> That curiosity led me from studying Electrical Engineering at Ain Shams University to diving headfirst into the world of machine learning — and I haven't looked back since.
             </p>
             <p>
-              Through specialized training with DeepLearning.AI, Stanford, and IBM, I went from understanding the math behind neural networks to building real systems — fraud detection models that catch what humans miss, CNNs that recognize handwriting with near-perfect accuracy, and pipelines that turn messy datasets into actionable insights.
+              Through specialized training with DeepLearning.AI, Stanford, IBM, and KodeKloud, I went from understanding the math behind neural networks to shipping real systems — a full-stack fraud detection app containerized with Docker, deep learning models for medical imaging, and PyTorch-based neural networks that turn messy datasets into actionable insights.
             </p>
             <p>
               What drives me isn't just the technology — it's the moment when a model clicks, when data reveals a pattern no one expected, and when AI solves a problem that genuinely matters. I'm always looking for the next challenge where I can make that happen.
