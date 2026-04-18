@@ -23,7 +23,7 @@ const HeroSection = () => {
             Hi, I'm <span className="text-primary">Ather Sayed</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Turning complex data into production-ready ML systems — from a <strong className="text-foreground font-semibold">fraud detection model achieving 92% AUC</strong> to <strong className="text-foreground font-semibold">CNNs with 99% accuracy</strong>. Specialized in Python, TensorFlow, and end-to-end ML pipelines.
+            Turning complex data into production-ready ML systems — from a <strong className="text-foreground font-semibold">full-stack fraud detection app deployed with Docker</strong> to <strong className="text-foreground font-semibold">medical imaging CNNs reaching 0.99 AUC</strong>. Specialized in Python, TensorFlow, PyTorch, and end-to-end ML pipelines.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 w-full sm:w-auto">
