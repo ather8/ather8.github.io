@@ -4,6 +4,15 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const projects = [
   {
+    title: "Fraud Detection System (Full-Stack)",
+    situation: "Needed an end-to-end, deployable fraud detection product — not just a notebook — combining ML, an API, and a user-facing dashboard.",
+    task: "Design a full-stack system that serves real-time fraud predictions via a backend API and presents results through an interactive frontend, all containerized for easy deployment.",
+    action: "Trained fraud detection models in Jupyter notebooks, served them through a backend inference API, built a frontend dashboard for transaction scoring, and orchestrated everything with Docker Compose for one-command startup.",
+    result: "Delivered a production-style fraud detection app with a clean separation between ML, API, and UI layers — fully reproducible via Docker.",
+    tags: ["Python", "Docker", "FastAPI", "Full-Stack", "ML Ops"],
+    github: "https://github.com/ather8/Fraud_Detection_System",
+  },
+  {
     title: "Credit Card Fraud Detection",
     situation: "Tasked with detecting fraud in a dataset where fraudulent transactions account for less than 0.2% of records.",
     task: "Build a model that maximizes fraud recall while minimizing false negatives on highly imbalanced data.",
@@ -11,15 +20,6 @@ const projects = [
     result: "Achieved 90% fraud recall and 92.6% ROC AUC — significantly outperforming baseline logistic regression.",
     tags: ["Python", "TensorFlow", "Isolation Forest", "Autoencoders"],
     github: "https://github.com/ather8/Anomaly_Detection_in_Credit_Card_Transactions",
-  },
-  {
-    title: "Digit Recognizer with CNN",
-    situation: "Needed a robust handwritten digit classifier for the MNIST benchmark dataset.",
-    task: "Design a CNN architecture that generalizes well beyond training data while achieving near-perfect accuracy.",
-    action: "Built a CNN with Conv2D, MaxPooling, and Dropout layers. Applied data augmentation and learning rate scheduling to prevent overfitting.",
-    result: "~99% test accuracy on MNIST with strong generalization and minimal overfitting.",
-    tags: ["Python", "TensorFlow", "Keras", "CNN"],
-    github: "https://github.com/ather8/Digit-Recognizer-with-CNN",
   },
   {
     title: "Adult Census Income Classification",
