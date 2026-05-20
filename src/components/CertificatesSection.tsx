@@ -13,6 +13,7 @@ import certDLKerasTF from "@/assets/certificates/cert-dl-keras-tf.jpg";
 import certDockerTraining from "@/assets/certificates/cert-docker-training.jpg";
 import certPytorchNN from "@/assets/certificates/cert-pytorch-nn.jpg";
 import certDLPytorch from "@/assets/certificates/cert-dl-pytorch.jpg";
+import certAICapstone from "@/assets/certificates/cert-ai-capstone.jpg";
 
 const certificates = [
   { title: "Supervised Machine Learning: Regression and Classification", issuer: "DeepLearning.AI & Stanford University", instructor: "Andrew Ng", date: "Dec 2025", image: certSupervisedML, link: "https://coursera.org/verify/2M8Y6KVACWCN" },
