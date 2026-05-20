@@ -26,6 +26,7 @@ const certificates = [
   { title: "Docker Training Course for the Absolute Beginner", issuer: "KodeKloud", instructor: "Mumshad Mannambeth", date: "Apr 2026", image: certDockerTraining, link: "https://kodekloud.com/certificate-verification/1f969372-5641-40ff-806b-35dae9acf4b9" },
   { title: "Introduction to Neural Networks and PyTorch", issuer: "IBM", instructor: "Joseph Santarcangelo", date: "Apr 2026", image: certPytorchNN, link: "https://coursera.org/verify/62ON4TGSHYYZ" },
   { title: "Deep Learning with PyTorch", issuer: "IBM", instructor: "Joseph Santarcangelo", date: "Apr 2026", image: certDLPytorch, link: "https://coursera.org/verify/QFF25B5F803I" },
+  { title: "AI Capstone Project with Deep Learning", issuer: "IBM", instructor: "Joseph Santarcangelo", date: "May 2026", image: certAICapstone, link: "https://coursera.org/verify/2KPR40KM1EYI" },
 ];
 
 const CertificatesSection = () => {
