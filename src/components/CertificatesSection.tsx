@@ -14,6 +14,8 @@ import certDockerTraining from "@/assets/certificates/cert-docker-training.jpg";
 import certPytorchNN from "@/assets/certificates/cert-pytorch-nn.jpg";
 import certDLPytorch from "@/assets/certificates/cert-dl-pytorch.jpg";
 import certAICapstone from "@/assets/certificates/cert-ai-capstone.jpg";
+import certGenAILLMs from "@/assets/certificates/cert-genai-llms.jpg";
+import certGenAINLP from "@/assets/certificates/cert-genai-nlp.jpg";
 
 const certificates = [
   { title: "Supervised Machine Learning: Regression and Classification", issuer: "DeepLearning.AI & Stanford University", instructor: "Andrew Ng", date: "Dec 2025", image: certSupervisedML, link: "https://coursera.org/verify/2M8Y6KVACWCN" },
@@ -27,6 +29,8 @@ const certificates = [
   { title: "Introduction to Neural Networks and PyTorch", issuer: "IBM", instructor: "Joseph Santarcangelo", date: "Apr 2026", image: certPytorchNN, link: "https://coursera.org/verify/62ON4TGSHYYZ" },
   { title: "Deep Learning with PyTorch", issuer: "IBM", instructor: "Joseph Santarcangelo", date: "Apr 2026", image: certDLPytorch, link: "https://coursera.org/verify/QFF25B5F803I" },
   { title: "AI Capstone Project with Deep Learning", issuer: "IBM", instructor: "Joseph Santarcangelo", date: "May 2026", image: certAICapstone, link: "https://coursera.org/verify/2KPR40KM1EYI" },
+  { title: "Generative AI and LLMs: Architecture and Data Preparation", issuer: "IBM", instructor: "Joseph Santarcangelo", date: "May 2026", image: certGenAILLMs, link: "https://coursera.org/verify/DS4EY4UONHTL" },
+  { title: "Gen AI Foundational Models for NLP & Language Understanding", issuer: "IBM", instructor: "Joseph Santarcangelo", date: "Jun 2026", image: certGenAINLP, link: "https://coursera.org/verify/CQUX8QFHP1KV" },
 ];
 
 const CertificatesSection = () => {
