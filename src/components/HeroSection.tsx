@@ -1,4 +1,4 @@
-import { ArrowDown, Download, Sparkles } from "lucide-react";
+import { ArrowDown, Download, Sparkles, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import profileImg from "@/assets/profile.jpg";
@@ -26,17 +26,34 @@ const HeroSection = () => {
             Turning complex data into production-ready ML systems — from a <strong className="text-foreground font-semibold">full-stack fraud detection app deployed with Docker</strong> to <strong className="text-foreground font-semibold">medical imaging CNNs reaching 0.99 AUC</strong>. Specialized in Python, TensorFlow, PyTorch, and end-to-end ML pipelines.
           </p>
         </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5">
+            <MapPin className="h-4 w-4 text-primary" aria-hidden="true" /> Cairo, Egypt
+          </span>
+          <span aria-hidden="true" className="h-1 w-1 rounded-full bg-muted-foreground/50" />
+          <span className="inline-flex items-center gap-1.5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            Available for hire
+          </span>
+          <span aria-hidden="true" className="h-1 w-1 rounded-full bg-muted-foreground/50" />
+          <span>13+ certifications · 6 shipped projects</span>
+        </div>
+
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 w-full sm:w-auto">
           <Button asChild size="lg" className="min-h-[48px] w-full sm:w-auto text-base">
             <a href="#projects">View Projects</a>
           </Button>
-          <Button variant="outline" size="lg" asChild className="min-h-[48px] w-full sm:w-auto text-base">
-            <a href="#contact">Get In Touch</a>
-          </Button>
-          <Button variant="secondary" size="lg" className="gap-2 min-h-[48px] w-full sm:w-auto text-base" asChild>
+          <Button variant="ghost" size="lg" className="gap-2 min-h-[48px] w-full sm:w-auto text-base" asChild>
             <a href="/Ather_Sayed_Resume.pdf" target="_blank" rel="noopener noreferrer" download aria-label="Download CV (opens PDF in new tab)">
               <Download className="h-4 w-4" aria-hidden="true" /> Download CV
             </a>
+          </Button>
+          <Button variant="ghost" size="lg" asChild className="min-h-[48px] w-full sm:w-auto text-base">
+            <a href="#contact">Get In Touch</a>
           </Button>
         </div>
         <a href="#about" className="mt-8 sm:mt-12 animate-bounce text-muted-foreground hover:text-primary transition-colors p-2" aria-label="Scroll to About section">

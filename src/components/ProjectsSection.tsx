@@ -1,10 +1,28 @@
-import { Github, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { Github, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
-const projects = [
+type Category = "Deep Learning" | "Classical ML" | "Full-Stack";
+
+type Project = {
+  title: string;
+  category: Category;
+  context: string;
+  action: string;
+  result: string;
+  situation: string;
+  task: string;
+  tags: string[];
+  github: string;
+};
+
+const projects: Project[] = [
   {
     title: "Fraud Detection System (Full-Stack)",
+    category: "Full-Stack",
+    context: "End-to-end fraud detection product combining ML, an API, and a user-facing dashboard — not just a notebook.",
     situation: "Needed an end-to-end, deployable fraud detection product — not just a notebook — combining ML, an API, and a user-facing dashboard.",
     task: "Design a full-stack system that serves real-time fraud predictions via a backend API and presents results through an interactive frontend, all containerized for easy deployment.",
     action: "Trained fraud detection models in Jupyter notebooks, served them through a backend inference API, built a frontend dashboard for transaction scoring, and orchestrated everything with Docker Compose for one-command startup.",
@@ -14,6 +32,8 @@ const projects = [
   },
   {
     title: "Credit Card Fraud Detection",
+    category: "Deep Learning",
+    context: "Highly imbalanced dataset where fraud accounts for less than 0.2% of transactions.",
     situation: "Tasked with detecting fraud in a dataset where fraudulent transactions account for less than 0.2% of records.",
     task: "Build a model that maximizes fraud recall while minimizing false negatives on highly imbalanced data.",
     action: "Combined Isolation Forest for unsupervised anomaly detection with TensorFlow Autoencoders for learned representations. Applied SMOTE for resampling and tuned thresholds.",
@@ -23,6 +43,8 @@ const projects = [
   },
   {
     title: "Adult Census Income Classification",
+    category: "Classical ML",
+    context: "Census income prediction with class imbalance — compare ensemble methods rigorously.",
     situation: "Census data with significant class imbalance needed to predict income brackets accurately.",
     task: "Compare ensemble methods and find the optimal classifier with robust evaluation metrics.",
     action: "Compared RandomForest vs. XGBoost with SMOTE resampling. Custom feature engineering and GridSearchCV for hyperparameter tuning.",
@@ -32,6 +54,8 @@ const projects = [
   },
   {
     title: "Titanic Disaster Prediction",
+    category: "Classical ML",
+    context: "Messy historical Titanic data with missing values and mixed feature types.",
     situation: "Limited, messy historical data on Titanic passengers with missing values and mixed feature types.",
     task: "Build an interpretable prediction pipeline with strong cross-validation performance.",
     action: "Built a Random Forest pipeline with feature engineering (title extraction, family size metrics) and GridSearchCV optimization.",
@@ -41,6 +65,8 @@ const projects = [
   },
   {
     title: "House Prices Prediction",
+    category: "Classical ML",
+    context: "Ames Housing dataset with 80+ features, heavy missing data, and multicollinearity.",
     situation: "Ames Housing dataset with 80+ features, significant missing data, and multicollinearity challenges.",
     task: "Predict sale prices accurately and identify key drivers of home value.",
     action: "Linear Regression with neighborhood-based median imputation, one-hot encoding, and residual analysis for model diagnostics.",
@@ -50,6 +76,8 @@ const projects = [
   },
   {
     title: "Breast Cancer Detection",
+    category: "Deep Learning",
+    context: "Histopathology image patches needing automated IDC detection with minimal false negatives.",
     situation: "Histopathology image patches needed automated analysis to detect Invasive Ductal Carcinoma (IDC) with minimal false negatives.",
     task: "Build a deep learning pipeline that achieves high recall for medical screening, critical for minimizing missed diagnoses.",
     action: "Leveraged InceptionResNetV2 with two-stage transfer learning — frozen feature extraction then fine-tuning from layer 600+. Applied data augmentation and exported to ONNX for deployment.",
@@ -59,45 +87,90 @@ const projects = [
   },
 ];
 
-const starLabels = [
-  { key: "situation", label: "Situation" },
-  { key: "task", label: "Task" },
-  { key: "action", label: "Action" },
-  { key: "result", label: "Result" },
-] as const;
+const filters: ("All" | Category)[] = ["All", "Deep Learning", "Classical ML", "Full-Stack"];
 
 const ProjectsSection = () => {
   const { ref, isVisible } = useScrollReveal();
+  const [filter, setFilter] = useState<(typeof filters)[number]>("All");
+  const visible = filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
   return (
     <section id="projects" className="py-20 sm:py-24 px-4 sm:px-6" aria-labelledby="projects-heading">
       <div ref={ref} className={`max-w-6xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
         <h2 id="projects-heading" className="text-2xl sm:text-3xl font-bold text-center mb-4">Projects</h2>
-        <div className="h-1 w-16 bg-primary mx-auto mb-10 sm:mb-12 rounded-full" aria-hidden="true" />
+        <div className="h-1 w-16 bg-primary mx-auto mb-8 rounded-full" aria-hidden="true" />
+
+        <div role="tablist" aria-label="Filter projects by category" className="flex flex-wrap justify-center gap-2 mb-10">
+          {filters.map((f) => {
+            const active = filter === f;
+            return (
+              <button
+                key={f}
+                role="tab"
+                aria-selected={active}
+                onClick={() => setFilter(f)}
+                className={`px-4 py-2 min-h-[40px] text-sm font-medium rounded-full border transition-colors ${
+                  active
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "bg-card text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"
+                }`}
+              >
+                {f}
+              </button>
+            );
+          })}
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {projects.map((p, i) => (
+          {visible.map((p, i) => (
             <article
               key={p.title}
-              className={`group bg-card border border-border rounded-xl p-5 sm:p-6 flex flex-col gap-3 sm:gap-4 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: `${(i + 1) * 100}ms` }}
+              className="group bg-card border border-border rounded-xl p-5 sm:p-6 flex flex-col gap-3 sm:gap-4 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300"
+              style={{ transitionDelay: `${(i % 6) * 60}ms` }}
             >
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{p.title}</h3>
-
-              <div className="space-y-2.5 flex-1">
-                {starLabels.map(({ key, label }) => (
-                  <div key={key}>
-                    <p className="text-xs font-bold text-primary uppercase tracking-wider mb-0.5">{label}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{p[key]}</p>
-                  </div>
-                ))}
+              <div className="flex items-start justify-between gap-2">
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{p.title}</h3>
+                <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full border border-primary/30 text-primary bg-primary/5">
+                  {p.category}
+                </span>
               </div>
 
-              <ul className="flex flex-wrap gap-1.5 sm:gap-2" aria-label={`Technologies used in ${p.title}`}>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.context}</p>
+
+              <div className="space-y-2">
+                <div>
+                  <p className="text-xs font-bold text-foreground uppercase tracking-wider mb-0.5">▸ Action</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{p.action}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-foreground uppercase tracking-wider mb-0.5">▸ Result</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{p.result}</p>
+                </div>
+              </div>
+
+              <Collapsible>
+                <CollapsibleTrigger className="group/c text-xs font-medium text-primary hover:underline inline-flex items-center gap-1">
+                  Read full STAR
+                  <ChevronDown className="h-3 w-3 transition-transform group-data-[state=open]/c:rotate-180" aria-hidden="true" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-2 pt-2">
+                  <div>
+                    <p className="text-xs font-bold text-foreground uppercase tracking-wider mb-0.5">▸ Situation</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{p.situation}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-foreground uppercase tracking-wider mb-0.5">▸ Task</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{p.task}</p>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+
+              <ul className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto" aria-label={`Technologies used in ${p.title}`}>
                 {p.tags.map((t) => (
                   <li key={t} className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">{t}</li>
                 ))}
               </ul>
-              <div className="flex gap-2 mt-1 sm:mt-2">
+              <div className="flex gap-2">
                 <Button variant="outline" size="sm" className="gap-1.5 min-h-[44px] text-sm" asChild>
                   <a href={p.github} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.title} source code on GitHub (opens in new tab)`}>
                     <Github className="h-3.5 w-3.5" aria-hidden="true" /> View Code
