@@ -46,17 +46,17 @@ const CertificatesSection = () => {
           {certificates.map((cert, i) => (
             <div
               key={i}
-              className={`bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all cursor-pointer group duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all group duration-500 flex flex-col ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${(i + 1) * 80}ms` }}
-              onClick={() => setSelected(i)}
-              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelected(i); } }}
-              role="button"
-              tabIndex={0}
-              aria-label={`View ${cert.title} certificate`}
             >
-              <div className="aspect-[4/3] overflow-hidden bg-secondary">
-                <img src={cert.image} alt={`${cert.title} certificate from ${cert.issuer}`} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
+              <button
+                type="button"
+                onClick={() => setSelected(i)}
+                className="aspect-[4/3] overflow-hidden bg-secondary block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                aria-label={`View ${cert.title} certificate image`}
+              >
+                <img src={cert.image} alt={`${cert.title} certificate from ${cert.issuer}`} loading="lazy" width="800" height="600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              </button>
               <div className="p-4 space-y-2">
                 <h3 className="font-semibold text-sm text-foreground leading-tight">{cert.title}</h3>
                 <p className="text-xs text-muted-foreground">{cert.issuer}</p>
@@ -66,9 +66,7 @@ const CertificatesSection = () => {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    onKeyDown={(e) => e.stopPropagation()}
-                    className="text-muted-foreground hover:text-primary p-1"
+                    className="text-muted-foreground hover:text-primary inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-md"
                     aria-label={`Verify ${cert.title} certificate (opens in new tab)`}
                   >
                     <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />

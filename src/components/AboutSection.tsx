@@ -33,6 +33,21 @@ const AboutSection = () => {
           </div>
         </div>
 
+        <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12" aria-label="Headline project metrics">
+          {[
+            { v: "0.99", l: "AUC, medical imaging" },
+            { v: "98%", l: "Recall on IDC detection" },
+            { v: "92.6%", l: "ROC AUC, fraud model" },
+            { v: "6", l: "Shipped ML projects" },
+          ].map((s) => (
+            <div key={s.l} className="bg-card border border-border rounded-xl p-4 text-center">
+              <dt className="sr-only">{s.l}</dt>
+              <dd className="text-2xl sm:text-3xl font-bold text-primary leading-none">{s.v}</dd>
+              <p className="text-xs text-muted-foreground mt-2 leading-snug">{s.l}</p>
+            </div>
+          ))}
+        </dl>
+
         <div className="grid md:grid-cols-3 gap-6">
           {highlights.map((h, i) => (
             <div
