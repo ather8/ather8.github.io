@@ -100,16 +100,16 @@ const ProjectsSection = () => {
         <h2 id="projects-heading" className="text-2xl sm:text-3xl font-bold text-center mb-4">Projects</h2>
         <div className="h-1 w-16 bg-primary mx-auto mb-8 rounded-full" aria-hidden="true" />
 
-        <div role="tablist" aria-label="Filter projects by category" className="flex flex-wrap justify-center gap-2 mb-10">
+        <div aria-label="Filter projects by category" className="flex flex-wrap justify-center gap-2 mb-10">
           {filters.map((f) => {
             const active = filter === f;
             return (
               <button
                 key={f}
-                role="tab"
-                aria-selected={active}
+                type="button"
+                aria-pressed={active}
                 onClick={() => setFilter(f)}
-                className={`px-4 py-2 min-h-[40px] text-sm font-medium rounded-full border transition-colors ${
+                className={`px-4 py-2 min-h-[44px] text-sm font-medium rounded-full border transition-colors ${
                   active
                     ? "bg-primary text-primary-foreground border-primary"
                     : "bg-card text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"

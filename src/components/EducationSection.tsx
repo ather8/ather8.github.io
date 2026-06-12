@@ -1,4 +1,4 @@
-import { GraduationCap, Calendar, MapPin } from "lucide-react";
+import { GraduationCap, Calendar, MapPin, ShieldCheck } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const EducationSection = () => {
@@ -27,7 +27,7 @@ const EducationSection = () => {
 
           <div className="bg-card border border-border rounded-xl p-8 flex gap-6 items-start">
             <div className="h-16 w-16 rounded-full bg-secondary border-2 border-primary/30 flex items-center justify-center shrink-0" aria-hidden="true">
-              <Calendar className="h-8 w-8 text-primary" />
+              <ShieldCheck className="h-8 w-8 text-primary" />
             </div>
             <div className="space-y-2">
               <h3 className="text-lg font-semibold text-foreground">Military Service</h3>
