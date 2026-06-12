@@ -1,28 +1,72 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Brain, Code, Wrench, BookOpen } from "lucide-react";
 
-const skillCategories = [
+type Level = "Core" | "Proficient" | "Familiar";
+
+const skillCategories: { icon: typeof Brain; title: string; skills: { name: string; level: Level }[] }[] = [
   {
     icon: Brain,
     title: "Machine Learning",
-    skills: ["Supervised Learning", "Unsupervised Learning", "Reinforcement Learning", "Recommender Systems", "Regression & Classification", "Clustering", "Anomaly Detection"],
+    skills: [
+      { name: "Supervised Learning", level: "Core" },
+      { name: "Regression & Classification", level: "Core" },
+      { name: "Anomaly Detection", level: "Core" },
+      { name: "Unsupervised Learning", level: "Proficient" },
+      { name: "Clustering", level: "Proficient" },
+      { name: "Recommender Systems", level: "Familiar" },
+      { name: "Reinforcement Learning", level: "Familiar" },
+    ],
   },
   {
     icon: Code,
     title: "Deep Learning",
-    skills: ["Neural Networks", "CNNs", "Keras", "TensorFlow", "PyTorch", "Backpropagation", "Transfer Learning", "Model Optimization"],
+    skills: [
+      { name: "Neural Networks", level: "Core" },
+      { name: "CNNs", level: "Core" },
+      { name: "TensorFlow", level: "Core" },
+      { name: "Keras", level: "Core" },
+      { name: "Transfer Learning", level: "Core" },
+      { name: "PyTorch", level: "Proficient" },
+      { name: "Backpropagation", level: "Proficient" },
+      { name: "Model Optimization", level: "Proficient" },
+    ],
   },
   {
     icon: Wrench,
     title: "Programming & Tools",
-    skills: ["Python", "NumPy", "Pandas", "scikit-learn", "Matplotlib", "OpenCV", "Jupyter Notebooks", "Git", "Docker", "ONNX"],
+    skills: [
+      { name: "Python", level: "Core" },
+      { name: "NumPy", level: "Core" },
+      { name: "Pandas", level: "Core" },
+      { name: "scikit-learn", level: "Core" },
+      { name: "Matplotlib", level: "Proficient" },
+      { name: "Jupyter Notebooks", level: "Core" },
+      { name: "Git", level: "Proficient" },
+      { name: "Docker", level: "Proficient" },
+      { name: "OpenCV", level: "Familiar" },
+      { name: "ONNX", level: "Familiar" },
+    ],
   },
   {
     icon: BookOpen,
     title: "Core Concepts",
-    skills: ["Linear Algebra", "Calculus", "Probability & Statistics", "Feature Engineering", "Data Preprocessing", "Model Evaluation", "Hyperparameter Tuning"],
+    skills: [
+      { name: "Linear Algebra", level: "Core" },
+      { name: "Probability & Statistics", level: "Core" },
+      { name: "Feature Engineering", level: "Core" },
+      { name: "Data Preprocessing", level: "Core" },
+      { name: "Model Evaluation", level: "Core" },
+      { name: "Hyperparameter Tuning", level: "Proficient" },
+      { name: "Calculus", level: "Proficient" },
+    ],
   },
 ];
+
+const levelStyles: Record<Level, string> = {
+  Core: "bg-primary/15 text-primary border-primary/40",
+  Proficient: "bg-secondary text-secondary-foreground border-border",
+  Familiar: "bg-transparent text-muted-foreground border-border/70",
+};
 
 const SkillsSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -45,11 +89,21 @@ const SkillsSection = () => {
               </div>
               <ul className="flex flex-wrap gap-2" aria-label={`${cat.title} skills`}>
                 {cat.skills.map((skill) => (
-                  <li key={skill} className="px-3 py-1.5 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-primary/40 hover:bg-primary/10 hover:text-primary transition-colors cursor-default">
-                    {skill}
+                  <li
+                    key={skill.name}
+                    className={`px-3 py-1.5 text-sm rounded-full border transition-colors cursor-default ${levelStyles[skill.level]}`}
+                    title={`${skill.level} proficiency`}
+                  >
+                    {skill.name}
+                    <span className="sr-only"> ({skill.level} proficiency)</span>
                   </li>
                 ))}
               </ul>
+              <div className="mt-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-wider text-muted-foreground" aria-hidden="true">
+                <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-primary" /> Core</span>
+                <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-secondary border border-border" /> Proficient</span>
+                <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full border border-border" /> Familiar</span>
+              </div>
             </div>
           ))}
         </div>
