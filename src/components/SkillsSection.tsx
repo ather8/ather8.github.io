@@ -1,63 +1,101 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Brain, Code, Wrench, BookOpen } from "lucide-react";
+import { Code2, Server, Brain, Sparkles, Wrench, BookOpen } from "lucide-react";
 
 type Level = "Core" | "Proficient" | "Familiar";
 
-const skillCategories: { icon: typeof Brain; title: string; skills: { name: string; level: Level }[] }[] = [
+const skillCategories: { icon: typeof Code2; title: string; skills: { name: string; level: Level }[] }[] = [
   {
-    icon: Brain,
-    title: "Machine Learning",
+    icon: Code2,
+    title: "Languages & Web",
     skills: [
-      { name: "Supervised Learning", level: "Core" },
-      { name: "Regression & Classification", level: "Core" },
-      { name: "Anomaly Detection", level: "Core" },
-      { name: "Unsupervised Learning", level: "Proficient" },
-      { name: "Clustering", level: "Proficient" },
-      { name: "Recommender Systems", level: "Familiar" },
-      { name: "Reinforcement Learning", level: "Familiar" },
+      { name: "Python", level: "Core" },
+      { name: "TypeScript", level: "Core" },
+      { name: "JavaScript", level: "Core" },
+      { name: "SQL", level: "Core" },
+      { name: "HTML5", level: "Core" },
+      { name: "CSS3", level: "Core" },
+      { name: "React", level: "Core" },
+      { name: "Vite", level: "Core" },
+      { name: "Tailwind CSS", level: "Core" },
+      { name: "shadcn/ui", level: "Proficient" },
+      { name: "Chakra UI", level: "Proficient" },
+      { name: "REST APIs", level: "Core" },
+      { name: "Node.js", level: "Familiar" },
     ],
   },
   {
-    icon: Code,
-    title: "Deep Learning",
+    icon: Server,
+    title: "Backend & MLOps",
     skills: [
-      { name: "Neural Networks", level: "Core" },
-      { name: "CNNs", level: "Core" },
-      { name: "TensorFlow", level: "Core" },
-      { name: "Keras", level: "Core" },
-      { name: "Transfer Learning", level: "Core" },
-      { name: "PyTorch", level: "Proficient" },
-      { name: "Backpropagation", level: "Proficient" },
-      { name: "Model Optimization", level: "Proficient" },
+      { name: "FastAPI", level: "Core" },
+      { name: "PostgreSQL", level: "Core" },
+      { name: "Docker", level: "Core" },
+      { name: "Docker Compose", level: "Core" },
+      { name: "Git & GitHub", level: "Core" },
+      { name: "Linux", level: "Proficient" },
+      { name: "CI/CD", level: "Proficient" },
+      { name: "Model Deployment", level: "Proficient" },
+      { name: "Redis", level: "Familiar" },
     ],
   },
   {
     icon: Wrench,
-    title: "Programming & Tools",
+    title: "Software Engineering",
     skills: [
-      { name: "Python", level: "Core" },
-      { name: "NumPy", level: "Core" },
-      { name: "Pandas", level: "Core" },
+      { name: "Object-Oriented Programming", level: "Core" },
+      { name: "Data Structures & Algorithms", level: "Core" },
+      { name: "Software Design", level: "Core" },
+      { name: "Code Review", level: "Proficient" },
+      { name: "Testing", level: "Proficient" },
+      { name: "Agile / Scrum", level: "Proficient" },
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: "Generative AI & NLP",
+    skills: [
+      { name: "LLMs", level: "Core" },
+      { name: "RAG (FAISS)", level: "Core" },
+      { name: "Transformers", level: "Proficient" },
+      { name: "Foundational Models", level: "Proficient" },
+      { name: "NLP", level: "Proficient" },
+      { name: "Hugging Face", level: "Proficient" },
+      { name: "Generative AI", level: "Proficient" },
+    ],
+  },
+  {
+    icon: Brain,
+    title: "Machine Learning & Deep Learning",
+    skills: [
+      { name: "Supervised Learning", level: "Core" },
+      { name: "Unsupervised Learning", level: "Proficient" },
+      { name: "Deep Learning", level: "Core" },
+      { name: "CNNs", level: "Core" },
+      { name: "Transfer Learning", level: "Core" },
+      { name: "TensorFlow", level: "Core" },
+      { name: "Keras", level: "Core" },
+      { name: "PyTorch", level: "Proficient" },
       { name: "scikit-learn", level: "Core" },
-      { name: "Matplotlib", level: "Proficient" },
-      { name: "Jupyter Notebooks", level: "Core" },
-      { name: "Git", level: "Proficient" },
-      { name: "Docker", level: "Proficient" },
-      { name: "OpenCV", level: "Familiar" },
-      { name: "ONNX", level: "Familiar" },
+      { name: "XGBoost", level: "Proficient" },
+      { name: "Anomaly Detection", level: "Core" },
+      { name: "Model Evaluation", level: "Core" },
+      { name: "Hyperparameter Tuning", level: "Proficient" },
+      { name: "Reinforcement Learning", level: "Familiar" },
     ],
   },
   {
     icon: BookOpen,
-    title: "Core Concepts",
+    title: "Foundations & Computer Vision",
     skills: [
       { name: "Linear Algebra", level: "Core" },
+      { name: "Calculus", level: "Proficient" },
       { name: "Probability & Statistics", level: "Core" },
       { name: "Feature Engineering", level: "Core" },
       { name: "Data Preprocessing", level: "Core" },
-      { name: "Model Evaluation", level: "Core" },
-      { name: "Hyperparameter Tuning", level: "Proficient" },
-      { name: "Calculus", level: "Proficient" },
+      { name: "OpenCV", level: "Proficient" },
+      { name: "Medical Imaging", level: "Proficient" },
+      { name: "Data Augmentation", level: "Proficient" },
+      { name: "ONNX Inference", level: "Familiar" },
     ],
   },
 ];
@@ -75,7 +113,12 @@ const SkillsSection = () => {
     <section id="skills" className="py-24 px-6 bg-card/50" aria-labelledby="skills-heading">
       <div ref={ref} className={`max-w-5xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
         <h2 id="skills-heading" className="text-3xl font-bold text-center mb-4">Skills</h2>
-        <div className="h-1 w-16 bg-primary mx-auto mb-12 rounded-full" aria-hidden="true" />
+        <div className="h-1 w-16 bg-primary mx-auto mb-6 rounded-full" aria-hidden="true" />
+        <div className="flex flex-wrap justify-center gap-3 text-[10px] uppercase tracking-wider text-muted-foreground mb-10" aria-label="Proficiency legend">
+          <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-primary" /> Core</span>
+          <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-secondary border border-border" /> Proficient</span>
+          <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full border border-border" /> Familiar</span>
+        </div>
         <div className="grid md:grid-cols-2 gap-8">
           {skillCategories.map((cat, i) => (
             <div
@@ -99,11 +142,6 @@ const SkillsSection = () => {
                   </li>
                 ))}
               </ul>
-              <div className="mt-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-wider text-muted-foreground" aria-hidden="true">
-                <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-primary" /> Core</span>
-                <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-secondary border border-border" /> Proficient</span>
-                <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full border border-border" /> Familiar</span>
-              </div>
             </div>
           ))}
         </div>

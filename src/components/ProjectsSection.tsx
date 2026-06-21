@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Github, ChevronDown } from "lucide-react";
+import { Github, ChevronDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
-type Category = "Deep Learning" | "Classical ML" | "Full-Stack";
+type Category = "Full-Stack" | "Deep Learning" | "Classical ML";
 
 type Project = {
   title: string;
@@ -16,19 +16,43 @@ type Project = {
   task: string;
   tags: string[];
   github: string;
+  live?: string;
 };
 
 const projects: Project[] = [
   {
-    title: "Fraud Detection System (Full-Stack)",
+    title: "AI-Powered Hospital Management System",
     category: "Full-Stack",
-    context: "End-to-end fraud detection product combining ML, an API, and a user-facing dashboard — not just a notebook.",
-    situation: "Needed an end-to-end, deployable fraud detection product — not just a notebook — combining ML, an API, and a user-facing dashboard.",
-    task: "Design a full-stack system that serves real-time fraud predictions via a backend API and presents results through an interactive frontend, all containerized for easy deployment.",
-    action: "Trained fraud detection models in Jupyter notebooks, served them through a backend inference API, built a frontend dashboard for transaction scoring, and orchestrated everything with Docker Compose for one-command startup.",
-    result: "Delivered a production-style fraud detection app with a clean separation between ML, API, and UI layers — fully reproducible via Docker.",
-    tags: ["Python", "Docker", "FastAPI", "Full-Stack", "ML Ops"],
+    context: "Live, production-deployed full-stack hospital platform with JWT/OAuth, RBAC across 5 roles, and embedded LLM/RAG features.",
+    situation: "Hospitals need a unified system covering patients, doctors, scheduling, EMR, and billing — plus modern AI assistance for clinical workflows.",
+    task: "Design and ship a production-grade, full-stack hospital management platform with role-based access and AI features baked in.",
+    action: "Built a FastAPI + PostgreSQL backend with JWT auth, Google OAuth, and RBAC across admin/doctor/nurse/receptionist/patient. Implemented patients, appointments with conflict detection, EMR with audit trail, and line-item billing. Added a multi-turn triage chatbot, report summarization, structured clinical notes, and a RAG clinical search pipeline (FAISS + LLM) with OCR ingestion. Containerized with Docker Compose and deployed (Vercel, Railway, Supabase).",
+    result: "Live, end-to-end product running in production with five role-scoped UIs, AI clinical features, and a reproducible Docker-based stack.",
+    tags: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "Redis", "Docker", "FAISS", "RAG", "LLMs"],
+    github: "https://github.com/ather8/AI-Powered-Hospital-System",
+    live: "https://ai-powered-hospital-system.vercel.app",
+  },
+  {
+    title: "Full-Stack Credit Card Fraud Detection",
+    category: "Full-Stack",
+    context: "End-to-end fraud detection platform pairing an unsupervised model with a real-time scoring API and analyst dashboard.",
+    situation: "Needed a deployable fraud detection product — not just a notebook — combining ML, an API, and a user-facing dashboard.",
+    task: "Design a full-stack system that scores transactions in real time, persists incidents for auditing, and surfaces them to analysts.",
+    action: "Trained an Isolation Forest model and served it through a FastAPI scoring API that persists flagged events to a PostgreSQL Incident Log. Built a React + Vite + Tailwind + shadcn/ui dashboard for live monitoring and triage. Containerized the full stack with Docker Compose.",
+    result: "Production-style fraud detection app with clean separation between ML, API, and UI layers — fully reproducible via Docker.",
+    tags: ["Python", "FastAPI", "PostgreSQL", "Docker", "React", "TypeScript", "Isolation Forest"],
     github: "https://github.com/ather8/Fraud_Detection_System",
+  },
+  {
+    title: "Game Hub — Game Discovery Web App",
+    category: "Full-Stack",
+    context: "Responsive, production-deployed web app for discovering games, with dynamic filtering, search, sorting, and platform/genre browsing.",
+    situation: "Wanted to ship a polished, type-safe React app that consumes a real third-party API end-to-end.",
+    task: "Build a responsive game discovery UI with filtering, search, sorting, and proper loading/error states.",
+    action: "Architected reusable, type-safe React components and custom hooks in TypeScript, integrating a third-party REST API with Chakra UI styling and a robust loading/error model. Deployed to Vercel.",
+    result: "Production-deployed web app with a clean component architecture and full type safety across the data layer.",
+    tags: ["React", "TypeScript", "Vite", "Chakra UI", "REST APIs"],
+    github: "https://github.com/ather8/game-hub",
   },
   {
     title: "Credit Card Fraud Detection",
@@ -87,7 +111,7 @@ const projects: Project[] = [
   },
 ];
 
-const filters: ("All" | Category)[] = ["All", "Deep Learning", "Classical ML", "Full-Stack"];
+const filters: ("All" | Category)[] = ["All", "Full-Stack", "Deep Learning", "Classical ML"];
 
 const ProjectsSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -170,7 +194,14 @@ const ProjectsSection = () => {
                   <li key={t} className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">{t}</li>
                 ))}
               </ul>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
+                {p.live && (
+                  <Button size="sm" className="gap-1.5 min-h-[44px] text-sm" asChild>
+                    <a href={p.live} target="_blank" rel="noopener noreferrer" aria-label={`Open live demo of ${p.title} (opens in new tab)`}>
+                      <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" /> Live Demo
+                    </a>
+                  </Button>
+                )}
                 <Button variant="outline" size="sm" className="gap-1.5 min-h-[44px] text-sm" asChild>
                   <a href={p.github} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.title} source code on GitHub (opens in new tab)`}>
                     <Github className="h-3.5 w-3.5" aria-hidden="true" /> View Code

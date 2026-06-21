@@ -1,10 +1,10 @@
-import { Brain, Code, Database } from "lucide-react";
+import { Code2, Server, Brain } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const highlights = [
-  { icon: Brain, label: "Deep Learning", desc: "CNNs, transfer learning, PyTorch & Keras neural networks" },
-  { icon: Code, label: "ML Engineering", desc: "Python, TensorFlow, FastAPI, Docker, end-to-end deployment" },
-  { icon: Database, label: "Data Science", desc: "Imbalanced data, feature engineering, model optimization" },
+  { icon: Code2, label: "Full-Stack Engineering", desc: "React, TypeScript, Vite, Tailwind, shadcn/ui — type-safe, responsive UIs" },
+  { icon: Server, label: "Backend & MLOps", desc: "Python, FastAPI, PostgreSQL, Docker Compose, CI/CD — shipped to production" },
+  { icon: Brain, label: "Applied AI", desc: "LLMs, RAG (FAISS), CNNs, transfer learning — embedded into real products" },
 ];
 
 const AboutSection = () => {
@@ -22,13 +22,13 @@ const AboutSection = () => {
         <div className="mb-12">
           <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
             <p>
-              It started with a simple question: <span className="text-foreground font-medium italic">"Can a machine actually learn to think?"</span> That curiosity led me from studying Electrical Engineering at Ain Shams University to diving headfirst into the world of machine learning — and I haven't looked back since.
+              I'm a Software Engineer who enjoys shipping the whole product — backend, frontend, and the AI layer in between. My path started with Electrical Engineering (Computer & Systems) at Ain Shams University, where I built strong foundations in <span className="text-foreground font-medium">data structures, algorithms, OOP, and software design</span>.
             </p>
             <p>
-              Through specialized training with DeepLearning.AI, Stanford, IBM, and KodeKloud, I went from understanding the math behind neural networks to shipping real systems — a full-stack fraud detection app containerized with Docker, deep learning models for medical imaging, and PyTorch-based neural networks that turn messy datasets into actionable insights.
+              Since then I've gone deep on full-stack and applied AI: a <span className="text-foreground font-medium">live, production-deployed AI-powered hospital management platform</span> with FastAPI, React, PostgreSQL, JWT/OAuth auth, and RAG-based clinical search; a real-time fraud detection system pairing an Isolation Forest model with a FastAPI scoring API and a React/Tailwind dashboard; and a deep learning pipeline for cancer detection reaching 0.99 AUC.
             </p>
             <p>
-              What drives me isn't just the technology — it's the moment when a model clicks, when data reveals a pattern no one expected, and when AI solves a problem that genuinely matters. I'm always looking for the next challenge where I can make that happen.
+              I hold 13 AI/ML certifications from Stanford, DeepLearning.AI, and IBM — but what I care about most is turning that knowledge into <span className="text-foreground font-medium">clean code, sound architecture, and software people actually use</span>.
             </p>
           </div>
         </div>
@@ -37,8 +37,8 @@ const AboutSection = () => {
           {[
             { v: "0.99", l: "AUC, medical imaging" },
             { v: "98%", l: "Recall on IDC detection" },
-            { v: "92.6%", l: "ROC AUC, fraud model" },
-            { v: "6", l: "Shipped ML projects" },
+            { v: "5", l: "Roles in hospital RBAC" },
+            { v: "7", l: "Shipped projects" },
           ].map((s) => (
             <div key={s.l} className="bg-card border border-border rounded-xl p-4 text-center">
               <dt className="sr-only">{s.l}</dt>
