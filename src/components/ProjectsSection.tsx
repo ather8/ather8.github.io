@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, ChevronDown } from "lucide-react";
+import { Github, ChevronDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
