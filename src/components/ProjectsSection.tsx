@@ -194,7 +194,14 @@ const ProjectsSection = () => {
                   <li key={t} className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">{t}</li>
                 ))}
               </ul>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
+                {p.live && (
+                  <Button size="sm" className="gap-1.5 min-h-[44px] text-sm" asChild>
+                    <a href={p.live} target="_blank" rel="noopener noreferrer" aria-label={`Open live demo of ${p.title} (opens in new tab)`}>
+                      <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" /> Live Demo
+                    </a>
+                  </Button>
+                )}
                 <Button variant="outline" size="sm" className="gap-1.5 min-h-[44px] text-sm" asChild>
                   <a href={p.github} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.title} source code on GitHub (opens in new tab)`}>
                     <Github className="h-3.5 w-3.5" aria-hidden="true" /> View Code
