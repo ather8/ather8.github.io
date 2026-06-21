@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
-type Category = "Deep Learning" | "Classical ML" | "Full-Stack";
+type Category = "Full-Stack" | "Deep Learning" | "Classical ML";
 
 type Project = {
   title: string;
@@ -16,9 +16,22 @@ type Project = {
   task: string;
   tags: string[];
   github: string;
+  live?: string;
 };
 
 const projects: Project[] = [
+  {
+    title: "AI-Powered Hospital Management System",
+    category: "Full-Stack",
+    context: "Live, production-deployed full-stack hospital platform with JWT/OAuth, RBAC across 5 roles, and embedded LLM/RAG features.",
+    situation: "Hospitals need a unified system covering patients, doctors, scheduling, EMR, and billing — plus modern AI assistance for clinical workflows.",
+    task: "Design and ship a production-grade, full-stack hospital management platform with role-based access and AI features baked in.",
+    action: "Built a FastAPI + PostgreSQL backend with JWT auth, Google OAuth, and RBAC across admin/doctor/nurse/receptionist/patient. Implemented patients, appointments with conflict detection, EMR with audit trail, and line-item billing. Added a multi-turn triage chatbot, report summarization, structured clinical notes, and a RAG clinical search pipeline (FAISS + LLM) with OCR ingestion. Containerized with Docker Compose and deployed (Vercel, Railway, Supabase).",
+    result: "Live, end-to-end product running in production with five role-scoped UIs, AI clinical features, and a reproducible Docker-based stack.",
+    tags: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "Redis", "Docker", "FAISS", "RAG", "LLMs"],
+    github: "https://github.com/ather8/AI-Powered-Hospital-System",
+    live: "https://ai-powered-hospital-system.vercel.app",
+  },
   {
     title: "Fraud Detection System (Full-Stack)",
     category: "Full-Stack",
