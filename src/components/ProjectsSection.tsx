@@ -111,7 +111,7 @@ const projects: Project[] = [
   },
 ];
 
-const filters: ("All" | Category)[] = ["All", "Deep Learning", "Classical ML", "Full-Stack"];
+const filters: ("All" | Category)[] = ["All", "Full-Stack", "Deep Learning", "Classical ML"];
 
 const ProjectsSection = () => {
   const { ref, isVisible } = useScrollReveal();
