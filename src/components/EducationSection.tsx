@@ -1,4 +1,4 @@
-import { GraduationCap, Calendar, MapPin, ShieldCheck } from "lucide-react";
+import { GraduationCap, Calendar, MapPin, ShieldCheck, School } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const EducationSection = () => {
