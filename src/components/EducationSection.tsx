@@ -12,6 +12,20 @@ const EducationSection = () => {
         <div className="max-w-2xl mx-auto space-y-6">
           <div className="bg-card border border-border rounded-xl p-8 flex gap-6 items-start">
             <div className="h-16 w-16 rounded-full bg-secondary border-2 border-primary/30 flex items-center justify-center shrink-0" aria-hidden="true">
+              <School className="h-8 w-8 text-primary" />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-foreground">Nozha Language Schools</h3>
+              <p className="text-muted-foreground">Kindergarten through high school</p>
+              <a href="https://www.nozhaschools.com/en/" target="_blank" rel="noopener noreferrer" className="text-primary font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">nozhaschools.com</a>
+              <div className="flex flex-wrap gap-4 text-sm text-muted-foreground pt-1">
+                <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" aria-hidden="true" /> Cairo, Egypt</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-card border border-border rounded-xl p-8 flex gap-6 items-start">
+            <div className="h-16 w-16 rounded-full bg-secondary border-2 border-primary/30 flex items-center justify-center shrink-0" aria-hidden="true">
               <GraduationCap className="h-8 w-8 text-primary" />
             </div>
             <div className="space-y-2">
