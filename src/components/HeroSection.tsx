@@ -40,7 +40,7 @@ const HeroSection = () => {
             Available for hire
           </span>
           <span aria-hidden="true" className="h-1 w-1 rounded-full bg-muted-foreground/50" />
-          <span>13 certifications · 7 shipped projects</span>
+          <span>13 certifications · 4 live production apps</span>
         </div>
 
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 w-full sm:w-auto">
