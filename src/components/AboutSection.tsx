@@ -25,7 +25,7 @@ const AboutSection = () => {
               I'm a Software Engineer who enjoys shipping the whole product — backend, frontend, and the AI layer in between. My path started with Electrical Engineering (Computer & Systems) at Ain Shams University, where I built strong foundations in <span className="text-foreground font-medium">data structures, algorithms, OOP, and software design</span>.
             </p>
             <p>
-              Since then I've gone deep on full-stack and applied AI: a <span className="text-foreground font-medium">live, production-deployed AI-powered hospital management platform</span> with FastAPI, React, PostgreSQL, JWT/OAuth auth, and RAG-based clinical search; a real-time fraud detection system pairing an Isolation Forest model with a FastAPI scoring API and a React/Tailwind dashboard; and a deep learning pipeline for cancer detection reaching 0.99 AUC.
+              Since then I've gone deep on full-stack and applied AI: a <span className="text-foreground font-medium">live, production-deployed AI-powered hospital management platform</span> with FastAPI, React, PostgreSQL, JWT/OAuth auth, and RAG-based clinical search; a <span className="text-foreground font-medium">restaurant management system</span> with role-based POS, an XGBoost demand forecaster (auto-retrained weekly) and a Gemini-powered natural-language query interface; and a real-time fraud detection dashboard pairing an Isolation Forest model with a FastAPI scoring API and a React/Tailwind UI.
             </p>
             <p>
               I hold 13 AI/ML certifications from Stanford, DeepLearning.AI, and IBM — but what I care about most is turning that knowledge into <span className="text-foreground font-medium">clean code, sound architecture, and software people actually use</span>.
@@ -35,10 +35,10 @@ const AboutSection = () => {
 
         <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12" aria-label="Headline project metrics">
           {[
-            { v: "0.99", l: "AUC, medical imaging" },
-            { v: "98%", l: "Recall on IDC detection" },
+            { v: "4", l: "Live production apps" },
             { v: "5", l: "Roles in hospital RBAC" },
-            { v: "7", l: "Shipped projects" },
+            { v: "48k", l: "Orders used to train forecaster" },
+            { v: "13", l: "AI / ML certifications" },
           ].map((s) => (
             <div key={s.l} className="bg-card border border-border rounded-xl p-4 text-center">
               <dt className="sr-only">{s.l}</dt>
