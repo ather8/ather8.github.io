@@ -23,7 +23,7 @@ const HeroSection = () => {
             Hi, I'm <span className="text-primary">Ather Sayed</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            I build full-stack AI products end-to-end — from a <strong className="text-foreground font-semibold">live, production-deployed AI-powered hospital management platform</strong> (FastAPI, React, PostgreSQL, RAG/LLMs) to a <strong className="text-foreground font-semibold">real-time fraud detection system</strong> and <strong className="text-foreground font-semibold">medical imaging CNNs reaching 0.99 AUC</strong>. Python · TypeScript · React · FastAPI · Docker.
+            I build full-stack AI products end-to-end — from a <strong className="text-foreground font-semibold">live AI-powered hospital management platform</strong> (FastAPI, React, PostgreSQL, RAG/LLMs) to a <strong className="text-foreground font-semibold">restaurant management system with XGBoost forecasting and a Gemini NL-query interface</strong>, and a <strong className="text-foreground font-semibold">real-time fraud detection dashboard</strong>. Python · TypeScript · React · FastAPI · Docker.
           </p>
         </div>
 
